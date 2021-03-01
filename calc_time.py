@@ -15,7 +15,7 @@ data_point_ar = []
 datapoint_ar = []
 drehwinkel_ar = []
 
-with open('data/'+entries[0]) as csv_file:
+with open('data/'+entries[1]) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
