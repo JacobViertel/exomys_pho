@@ -5,10 +5,11 @@ from matplotlib import pyplot
 from statsmodels.tsa.arima.model import ARIMA
 from sklearn.metrics import mean_squared_error
 from math import sqrt
+
 # load dataset
 def parser(x):
     return datetime.strptime(x, '%H:%M:%S')
-series = read_csv('data/prepared_results.csv', header=0, index_col=0, parse_dates=True, squeeze=True, date_parser=parser)
+series = read_csv('../data/random_data.csv', header=0, index_col=0, parse_dates=True, squeeze=True, date_parser=parser)
 series.index = series.index.to_period('s')
 
 # split into train and test sets
