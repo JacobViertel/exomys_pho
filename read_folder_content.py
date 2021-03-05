@@ -1,9 +1,7 @@
-import os
 import csv
 import pandas
 import matplotlib.pyplot as plt
 
-entries = os.listdir('data/')
 
 colum_names =[]
 zugkraft_ar = []
@@ -12,7 +10,7 @@ time_ar = []
 datapoint_ar = []
 drehwinkel_ar = []
 
-with open('data/'+entries[0]) as csv_file:
+with open('data/Thursday_long.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
@@ -23,7 +21,7 @@ with open('data/'+entries[0]) as csv_file:
 
 print(colum_names)
 
-with open('data/'+entries[0], newline='') as csvfile:
+with open('data/Thursday_long.csv', newline='') as csvfile:
     data = csv.DictReader(csvfile)
     for row in data:
         zugkraft_ar.append(float(row[colum_names[2]]))

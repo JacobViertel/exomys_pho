@@ -15,7 +15,7 @@ data_point_ar = []
 datapoint_ar = []
 drehwinkel_ar = []
 
-with open('data/'+entries[1]) as csv_file:
+with open('data/Thursday_long.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
@@ -26,7 +26,7 @@ with open('data/'+entries[1]) as csv_file:
 
 print(colum_names)
 
-with open('data/'+entries[0], newline='') as csvfile:
+with open('data/Thursday_long.csv', newline='') as csvfile:
     data = csv.DictReader(csvfile)
     for row in data:
         zugkraft_ar.append(float(row[colum_names[2]]))
@@ -61,5 +61,12 @@ plt.plot(datapoint_ar, work_sum_ar)
 plt.title('Arbeitsverlauf')
 plt.xlabel('Datenpunkt')
 plt.ylabel('Arbei in W')
-
 plt.show()
+
+#write file 
+i = 0
+with open('data/prepared_results.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    for x in work_sum_ar:
+        writer.writerow([time_ar[i],work_sum_ar[i]])
+        i +=1
